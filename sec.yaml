@@ -1,0 +1,11 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: postgresql-db-creds
+  namespace: redhat-keycloak-operator  
+data:
+  PGDATA: L2RhdGEvcGdkYXRh
+  POSTGRES_DB: a2V5Y2xvYWs=
+  POSTGRES_PASSWORD: dWRjcGFzc3dvcmQ=
+  POSTGRES_USER: dWRjdXNlcg==
+type: Opaque
