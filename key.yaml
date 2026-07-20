@@ -1,0 +1,29 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  creationTimestamp: "2025-05-13T12:10:47Z"
+  generation: 3
+  labels:
+    app: sso
+  name: udc-keycloak
+  namespace: redhat-keycloak-operator
+spec:
+  db:
+    passwordSecret:
+      key: POSTGRES_PASSWORD
+      name: postgresql-db-creds
+    port: 5432
+    schema: keycloak
+    url: "jdbc:postgresql://postgres-db:5432/keycloak"
+    usernameSecret:
+      key: POSTGRES_USER
+      name: postgresql-db-creds
+    vendor: postgres
+  hostname:
+    hostname: keycloak.apps.ocpu.enp.aramco.com.sa
+    strict: true
+  http:
+    httpEnabled: true
+  instances: 1
+  proxy:
+    headers: xforwarded
